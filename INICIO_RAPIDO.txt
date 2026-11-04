@@ -1,0 +1,30 @@
+SISTEMA WEB DE ENCUESTAS ACE 2026
+=================================
+
+1. Extrae ZIP y abre la carpeta ACE_2026_WEB en Visual Studio Code.
+2. Instala Node.js 22.12 o superior y PostgreSQL.
+3. En pgAdmin, crea la base de datos ace_2026.
+4. En Terminal de VS Code (PowerShell):
+
+   Copy-Item .env.example .env
+
+5. Edita .env: agrega tu contraseña PostgreSQL en DATABASE_URL.
+6. Genera un secreto con:
+
+   node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+
+   Pon ese valor como JWT_SECRET en .env.
+7. Ejecuta estos comandos UNO POR UNO:
+
+   npm install
+   npm run db:init
+   npm run test:logic
+   npm run admin:create
+   npm run dev
+
+8. Abre: http://localhost:5173
+9. En Administración, inicia sesión y registra una unidad educativa.
+10. Regresa al inicio y prueba las encuestas con datos FICTICIOS.
+
+NOTA IMPORTANTE: Ver las instrucciones detalladas en README.md.
+Para registrar datos reales de menores se requiere autorización y HTTPS.
